@@ -78,10 +78,7 @@ const Contact = () => {
             <div className="h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-cyber-dark dark:text-white">Contact Information</h3>
-                <p className="text-cyber-gray dark:text-gray-300 mb-6">
-                  I'm currently available for freelance work, consulting, and collaboration on cybersecurity projects.
-                  If you have any questions or want to work together, don't hesitate to reach out.
-                </p>
+                <p className="text-cyber-gray dark:text-gray-300 mb-6"> If you have any questions or want to work together, don't hesitate to reach out.</p>
               </div>
 
               <div className="bg-gray-50 dark:bg-cyber-gray/20 rounded-lg p-6 shadow-sm">
