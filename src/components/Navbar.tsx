@@ -73,9 +73,6 @@ const Navbar = () => {
                 {section}
               </Button>
             ))}
-            <Button variant="outline" className="ml-2">
-              <a href="#" download="resume.pdf">Resume</a>
-            </Button>
           </nav>
           <Button variant="ghost" className="md:hidden">Menu</Button>
         </div>

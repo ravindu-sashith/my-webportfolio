@@ -1,28 +1,22 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 const Hero = () => {
-  return <section id="home" className="min-h-screen flex items-center pt-16 pb-10 section-padding">
+  return <section id="home" className="min-h-screen flex items-center pt-16 pb-10 section-padding bg-cyber-blue/10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-cyber-dark dark:text-white">
-              Cybersecurity & <span className="text-cyber-blue dark:text-cyber-blue-light">Digital Forensics</span> Enthusiast
+              Hi, I'm <span className="text-cyber-blue dark:text-cyber-blue-light">Ravindu Hettiarachchi</span>
             </h1>
             <p className="text-lg text-cyber-gray dark:text-gray-300 mb-6 max-w-lg">Aspiring SOC Analyst &amp; Digital Forensics Investigator | Undergraduate at Esoft</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-cyber-blue hover:bg-cyber-blue/90" onClick={() => {
-              document.getElementById('projects')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}>
-                View Projects <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" onClick={() => {
               document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               });
             }}>
-                Get in Touch
+                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>

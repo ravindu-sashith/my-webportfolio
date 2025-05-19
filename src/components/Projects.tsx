@@ -10,67 +10,33 @@ interface Project {
   description: string;
   tags: string[];
   githubUrl: string;
-  image: string;
 }
 
 const Projects = () => {
   const [projects] = useState<Project[]>([
     {
       id: 1,
-      title: "Advanced Memory Forensics Framework",
-      description: "A Python-based memory forensics tool that enhances the capabilities of Volatility framework with machine learning for faster malware detection in memory dumps.",
-      tags: ["Python", "Volatility", "Machine Learning", "Digital Forensics"],
-      githubUrl: "https://github.com/username/memory-forensics-framework",
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=500&auto=format&fit=crop"
-    },
-    {
-      id: 2,
-      title: "Network Traffic Analyzer",
-      description: "A real-time network traffic analysis tool that detects anomalies and potential threats using deep packet inspection and behavioral analysis.",
-      tags: ["Python", "Wireshark", "Machine Learning", "Network Security"],
-      githubUrl: "https://github.com/username/network-analyzer",
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=500&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Secure File Integrity Monitor",
-      description: "A file integrity monitoring system that uses cryptographic hashing to detect unauthorized modifications to critical system files.",
-      tags: ["Python", "Cryptography", "System Security"],
-      githubUrl: "https://github.com/username/file-integrity-monitor",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500&auto=format&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Malware Behavior Analyzer",
-      description: "A sandboxed environment for analyzing malware behavior without risking system infection, with detailed reports on file system, registry, and network activities.",
-      tags: ["Python", "Sandbox", "Malware Analysis"],
-      githubUrl: "https://github.com/username/malware-analyzer",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&auto=format&fit=crop"
-    },
+      title: "XOR Cipher",
+      description: "This is a simple Python script that implements a 4-bit XOR cipher to encrypt and decrypt binary data. XOR (exclusive OR) is a common technique used in symmetric encryption systems due to its simplicity and effectiveness.",
+      tags: ["Python", "Cryptography", "Symmetric Encryption"],
+      githubUrl: "https://github.com/ravindu-sashith/xor-cipher",
+    }
   ]);
 
   return (
-    <section id="projects" className="py-20 section-padding">
+    <section id="projects" className="py-20 section-padding bg-cyber-blue/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2 text-cyber-dark dark:text-white">Projects</h2>
           <div className="w-20 h-1 bg-cyber-blue dark:bg-cyber-blue-light mx-auto mb-6"></div>
           <p className="text-cyber-gray dark:text-gray-300 max-w-2xl mx-auto">
-            Explore my cybersecurity projects and contributions focusing on digital forensics,
-            threat detection, and security automation.
+            Explore my cybersecurity projects focusing on encryption, security implementation, and more.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="max-w-3xl mx-auto">
           {projects.map((project) => (
             <Card key={project.id} className="overflow-hidden card-hover">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
               </CardHeader>
