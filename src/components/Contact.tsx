@@ -1,28 +1,27 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -36,6 +35,7 @@ const Contact = () => {
       message: ""
     });
   };
+
   return <section id="contact" className="py-20 section-padding">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
@@ -48,6 +48,34 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-10">
+          <div className="md:w-1/2">
+            <div className="h-full flex flex-col justify-between">
+              <div className="bg-gray-50 dark:bg-cyber-gray/20 rounded-lg p-6 shadow-sm h-full">
+                <h4 className="text-lg font-medium mb-4 text-cyber-dark dark:text-white">Connect With Me</h4>
+                <div className="space-y-4">
+                  <a href="mailto:ravindu.sashith@gmail.com" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
+                    <div className="bg-cyber-blue/10 p-3 rounded-full">
+                      <Mail className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
+                    </div>
+                    <span>ravindu.sashith@gmail.com</span>
+                  </a>
+                  <a href="https://github.com/ravindu-sashith" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
+                    <div className="bg-cyber-blue/10 p-3 rounded-full">
+                      <Github className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
+                    </div>
+                    <span>github.com/ravindu-sashith</span>
+                  </a>
+                  <a href="https://linkedin.com/in/hrshettiarachchi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
+                    <div className="bg-cyber-blue/10 p-3 rounded-full">
+                      <Linkedin className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
+                    </div>
+                    <span>linkedin.com/in/hrshettiarachchi</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="md:w-1/2">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -73,41 +101,9 @@ const Contact = () => {
               </Button>
             </form>
           </div>
-
-          <div className="md:w-1/2">
-            <div className="h-full flex flex-col justify-between">
-              <div>
-                
-                
-              </div>
-
-              <div className="bg-gray-50 dark:bg-cyber-gray/20 rounded-lg p-6 shadow-sm">
-                <h4 className="text-lg font-medium mb-4 text-cyber-dark dark:text-white">Connect With Me</h4>
-                <div className="space-y-4">
-                  <a href="mailto:contact@example.com" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
-                    <div className="bg-cyber-blue/10 p-3 rounded-full">
-                      <Mail className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
-                    </div>
-                    <span>ravindu.sashith@gmail.com</span>
-                  </a>
-                  <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
-                    <div className="bg-cyber-blue/10 p-3 rounded-full">
-                      <Github className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
-                    </div>
-                    <span>github.com/ravindu-sashith</span>
-                  </a>
-                  <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-cyber-gray dark:text-gray-300 hover:text-cyber-blue dark:hover:text-cyber-blue-light transition-colors">
-                    <div className="bg-cyber-blue/10 p-3 rounded-full">
-                      <Linkedin className="h-5 w-5 text-cyber-blue dark:text-cyber-blue-light" />
-                    </div>
-                    <span>linkedin.com/in/hrshettiarachchi</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>;
 };
+
 export default Contact;

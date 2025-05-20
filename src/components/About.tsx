@@ -5,25 +5,15 @@ const About = () => {
   const skillCategories = [
     {
       category: "Programming",
-      skills: [
-        { name: "Python", level: 90 },
-        { name: "C#", level: 85 },
-        { name: "SQL", level: 82 }
-      ]
+      skills: ["Python", "C#", "SQL"]
     },
     {
       category: "Digital Forensics",
-      skills: [
-        { name: "FTK Imager", level: 88 },
-        { name: "Autopsy", level: 85 }
-      ]
+      skills: ["FTK Imager", "Autopsy"]
     },
     {
       category: "System & Network",
-      skills: [
-        { name: "Linux", level: 84 },
-        { name: "Wireshark", level: 86 }
-      ]
+      skills: ["Linux", "Wireshark"]
     }
   ];
   
@@ -52,16 +42,10 @@ const About = () => {
                 <h4 className="text-lg font-medium text-cyber-dark dark:text-white mb-3">{category.category}</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {category.skills.map(skill => (
-                    <Card key={skill.name} className="card-hover">
+                    <Card key={skill} className="card-hover">
                       <CardContent className="p-4">
-                        <div className="mb-2">
-                          <span className="font-medium text-cyber-dark dark:text-white">{skill.name}</span>
-                        </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                          <div 
-                            className="bg-cyber-blue dark:bg-cyber-blue-light h-2.5 rounded-full" 
-                            style={{width: `${skill.level}%`}}
-                          ></div>
+                        <div>
+                          <span className="font-medium text-cyber-dark dark:text-white">{skill}</span>
                         </div>
                       </CardContent>
                     </Card>

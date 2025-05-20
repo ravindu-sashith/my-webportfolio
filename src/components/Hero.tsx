@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+
 const Hero = () => {
   return <section id="home" className="min-h-screen flex items-center pt-16 pb-10 section-padding bg-cyber-blue/10">
       <div className="container mx-auto px-4">
@@ -12,11 +13,15 @@ const Hero = () => {
             <p className="text-lg text-cyber-gray dark:text-gray-300 mb-6 max-w-lg">Aspiring SOC Analyst &amp; Digital Forensics Investigator | Undergraduate at Esoft</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-cyber-blue hover:bg-cyber-blue/90" onClick={() => {
-              document.getElementById('contact')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}>
-                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+                // Create a function to handle CV download
+                const link = document.createElement('a');
+                link.href = '/cv.pdf'; // This would be the path to your CV file
+                link.download = 'Ravindu_Hettiarachchi_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}>
+                Download CV <Download className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -32,4 +37,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
