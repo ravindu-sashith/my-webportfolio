@@ -55,6 +55,10 @@ To change the profile picture, upload a new image and update the `src` attribute
 <img src="/path/to/your/image.png" alt="Profile" className="w-full h-full object-cover" />
 ```
 
+To update the CV file for download:
+1. Add your CV file to the public folder (`/public/cv.pdf`)
+2. The Download CV button will automatically use this file
+
 ### Adding Skills
 
 To add or modify skills, edit the `skillCategories` array in `src/components/About.tsx`:
@@ -109,18 +113,20 @@ To add or update certifications, modify the `certifications` array in `src/compo
 const certifications = [
   {
     id: 1,
-    title: "IT Masters' Digital Forensics (Updated)", // Certificate title
+    name: "IT Masters' Digital Forensics", // Certificate title
     issuer: "IT Masters (Charles Sturt University)", // Certificate issuer
-    date: "Mar 2025", // Date earned
-    imageUrl: "/path/to/certificate-image.jpg" // Optional: path to certificate image
+    date: "March 2025", // Date earned
+    description: "Updated free online short course on digital forensics techniques and practices.",
+    certificateUrl: "https://drive.google.com/your-certificate-link-here" // Google Drive or any other link to view the certificate
   },
   // Add more certificates by following this structure
   {
     id: 2,
-    title: "New Certificate Name",
+    name: "New Certificate Name",
     issuer: "Certificate Provider",
     date: "Month Year",
-    imageUrl: "/path/to/image.jpg" // Optional
+    description: "Certificate description",
+    certificateUrl: "https://drive.google.com/your-certificate-link-here" // Link to view certificate
   }
 ];
 ```
@@ -142,18 +148,48 @@ To update social media links, edit the links in `src/components/Contact.tsx`:
 </a>
 ```
 
-### Download CV Button
+### Form Submission
 
-To update the CV file that gets downloaded when clicking the "Download CV" button:
+The contact form is currently set up with a simulated submission. To connect it to an actual backend:
 
-1. Add your CV file to the public folder (`/public/cv.pdf`)
-2. Update the path in the `Hero.tsx` component if necessary:
+1. Find the `handleSubmit` function in `src/components/Contact.tsx`
+2. Replace the setTimeout function with your preferred form handling method (e.g., fetch API to your backend, email service API, or form submission service like Formspree)
 
+Example with a form submission service:
 ```tsx
-// Find this section in the Hero.tsx file
-const link = document.createElement('a');
-link.href = '/cv.pdf'; // Update the path to your CV file
-link.download = 'Your_Name_CV.pdf'; // Update the download filename
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  
+  try {
+    // Replace with your form submission endpoint
+    const response = await fetch('https://formspree.io/your-form-id', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    if (response.ok) {
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon."
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Failed to send your message. Please try again.",
+      variant: "destructive"
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 ```
 
 ## Project Structure

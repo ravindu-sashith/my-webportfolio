@@ -13,6 +13,7 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,16 +25,22 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon."
-    });
-    setFormData({
-      name: "",
-      email: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+    
+    // Simulate form submission (replace with actual submission logic)
+    setTimeout(() => {
+      console.log("Form submitted:", formData);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon."
+      });
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   return <section id="contact" className="py-20 section-padding">
@@ -96,8 +103,8 @@ const Contact = () => {
                 </label>
                 <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Your message..." required className="min-h-32 w-full" />
               </div>
-              <Button type="submit" className="w-full bg-cyber-blue hover:bg-cyber-blue/90">
-                Send Message
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-cyber-blue hover:bg-cyber-blue/90">
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>

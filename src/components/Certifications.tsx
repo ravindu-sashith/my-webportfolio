@@ -1,5 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 interface Certification {
   id: number;
@@ -7,6 +9,7 @@ interface Certification {
   issuer: string;
   date: string;
   description: string;
+  certificateUrl?: string;
 }
 
 const Certifications = () => {
@@ -16,14 +19,16 @@ const Certifications = () => {
       name: "IT Masters' Digital Forensics",
       issuer: "IT Masters (Charles Sturt University)",
       date: "March 2025",
-      description: "Updated free online short course on digital forensics techniques and practices."
+      description: "Updated free online short course on digital forensics techniques and practices.",
+      certificateUrl: "https://drive.google.com/your-certificate-link-here"
     },
     {
       id: 2,
       name: "SOC Analyst Learning Path",
       issuer: "LetsDefend",
       date: "April 2025",
-      description: "Comprehensive training on Security Operations Center (SOC) analysis and threat detection."
+      description: "Comprehensive training on Security Operations Center (SOC) analysis and threat detection.",
+      certificateUrl: "https://drive.google.com/your-certificate-link-here"
     }
   ];
 
@@ -45,7 +50,16 @@ const Certifications = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-cyber-gray dark:text-gray-300 mb-2">{cert.description}</p>
-                <span className="text-xs font-medium text-cyber-blue dark:text-cyber-blue-light">{cert.date}</span>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-medium text-cyber-blue dark:text-cyber-blue-light">{cert.date}</span>
+                  {cert.certificateUrl && (
+                    <a href={cert.certificateUrl} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="sm" className="text-xs flex items-center gap-1">
+                        View Certificate <ExternalLink className="h-3 w-3" />
+                      </Button>
+                    </a>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}
