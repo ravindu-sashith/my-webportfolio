@@ -20,7 +20,7 @@ const Certifications = () => {
       issuer: "IT Masters (Charles Sturt University)",
       date: "March 2025",
       description: "Updated free online short course on digital forensics techniques and practices.",
-      certificateUrl: "https://drive.google.com/your-certificate-link-here"
+      certificateUrl: "https://drive.google.com/file/d/1TCgZMlsiWZpACkdTiYtdsTkpVdSeDjwV/view?usp=drive_link"
     },
     {
       id: 2,
