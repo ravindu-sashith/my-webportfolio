@@ -17,9 +17,16 @@ const Projects = () => {
     {
       id: 1,
       title: "XOR Cipher",
+      description: "This is a basic keylogger written in Python using the pynput library. It captures keyboard input and stores it in a local text file. The project is designed strictly for educational and ethical hacking purposes, helping learners understand keylogging behavior and how to defend against it.",
+      tags: ["Python", "Cybersecurity", "Ethical Hacking"],
+      githubUrl: "https://github.com/ravindu-sashith/xor-cipher",
+    }
+    {
+      id: 2,
+      title: "Python Keylogger",
       description: "This is a simple Python script that implements a 4-bit XOR cipher to encrypt and decrypt binary data. XOR (exclusive OR) is a common technique used in symmetric encryption systems due to its simplicity and effectiveness.",
       tags: ["Python", "Cryptography", "Symmetric Encryption"],
-      githubUrl: "https://github.com/ravindu-sashith/xor-cipher",
+      githubUrl: "https://github.com/ravindu-sashith/keylogger",
     }
   ]);
 
