@@ -28,7 +28,7 @@ const Certifications = () => {
       issuer: "LetsDefend",
       date: "April 2025",
       description: "Comprehensive training on Security Operations Center (SOC) analysis and threat detection.",
-      certificateUrl: "https://drive.google.com/your-certificate-link-here"
+      certificateUrl: "https://app.letsdefend.io/certificate/show/9260d463-cae1-4dc9-aaa6-3bb1b58173d4"
     }
   ];
 
