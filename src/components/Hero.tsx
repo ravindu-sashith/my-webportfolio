@@ -30,7 +30,11 @@ const Hero = () => {
           animationDelay: '0.2s'
         }}>
             <div className="relative rounded-full overflow-hidden w-64 h-64 md:w-80 md:h-80 border-4 border-cyber-blue dark:border-cyber-blue-light shadow-lg">
-              <img src="/lovable-uploads/9bdc11d3-4082-4b76-bdfb-77cb437036de.png" alt="Profile" className="w-full h-full object-cover" />
+              <img 
+                src={`${import.meta.env.BASE_URL}lovable-uploads/9bdc11d3-4082-4b76-bdfb-77cb437036de.png`} 
+                alt="Profile" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </div>
         </div>
